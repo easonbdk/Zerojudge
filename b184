@@ -1,0 +1,27 @@
+#include <iostream>
+#include <cstdlib>
+#include <cstdio>
+#include <cmath>
+using namespace std;
+ 
+int main() {
+ 
+	int n,i,s,v,m=100;
+ 
+	while(scanf("%d",&n)!=EOF) {
+ 
+		int c[60000]= {0};
+ 
+		while(n--) {
+			scanf("%d %d",&s,&v);
+			i=m;
+			while( (i-s)>=0 ) {
+				c[i]=max(c[i-s]+v,c[i]);
+				i--;
+			}
+		}
+		printf("%d\n",c[m]);
+	}
+ 
+	return 0;
+}
